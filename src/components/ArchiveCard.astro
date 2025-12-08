@@ -1,0 +1,29 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+    pdfLink: string;
+    src: ImageMetadata;
+    title: string;
+}
+
+const { pdfLink, src, title }: Props = Astro.props;
+
+---
+<>
+    <a href={pdfLink} target="_blank">
+    <Image src={src} alt={title} />
+    <p>{title}</p>
+    </a>
+</>
+
+<style>
+    .root {
+    margin-top: 30px;
+    display: grid;
+    width: 90%;
+    margin-left: 5%;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto 20px auto ;
+    }
+</style>

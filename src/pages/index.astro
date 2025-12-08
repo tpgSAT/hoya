@@ -1,16 +1,343 @@
 ---
+import Layout from "@layouts/Layout.astro"
 
+// Astroの画像最適化を利用するため
+import { Image } from 'astro:assets';
+
+import logo from '@assets/hoya_logo.png';
+import theme from '@assets/logo_jiyu.webp';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Hoya">
+	<div class="fade_hoya">
+      <Image src={logo} alt="Hoya Logo" class="logo" />
+      <div class="explanation">
+        <p>4月・10月発行予定　vol.1~6 webにてアーカイブ公開中</p>
+      </div>
+      <div class="jiyu">
+        <Image src={theme} alt="Hoyaから始まる自由" />
+        <p>
+          はじめまして、こんにちは。
+          <br />Taki Plaza Gardenerが発行する「Hoya」です。
+          <br /><br />2021年春生まれの東京科学大学フリーペーパーの新しい一員です。
+          <br /><br />Taki
+          Plazaでのくつろぎの時、何となく暇なスキマ時間に読んでもらえる読みものがあればいいな、と考えたTPG広報班有志によって誕生しました。
+          <br /><br />噛めば噛むほど味が出る、食べてみたら意外とクセになる「ホヤ」のような存在でありたいと思っています。
+          <br /><br />Taki
+          Plazaから始まる自由気ままなフリーペーパーをモットーに、
+          <br />役に立つかもしれない（？）遊び心満載のコンテンツを掲載する予定です。
+          <br />もしTaki Plazaに立ち寄る機会があれば是非手にとってみて下さいね。
+        </p>
+      </div>
+      <div class="archive">
+        <p class="subtitle archve_text">アーカイブ</p>
+        <p>
+          過去に発行したHoyaのバックナンバーを閲覧できます。気になる号の画像をクリックして下さい。
+        </p>
+      </div>
+      <div class="items">
+        <div class="vol1 vol">
+          <a href="./_assets/hoya_01_web.pdf" target="_blank">
+            <img src="./_img/hoya_01.webp" alt="" />
+            <p>vol.1 2021年春</p>
+          </a>
+        </div>
+        <div class="vol2 vol">
+          <a href="./_assets/hoya_02_web.pdf" target="_blank">
+            <img src="./_img/hoya_02.webp" alt="" />
+            <p>vol.2 2021年秋</p>
+          </a>
+        </div>
+        <div class="vol3 vol">
+          <a href="./_assets/hoya_03_web.pdf" target="_blank">
+            <img src="./_img/hoya_03.webp" alt="" />
+            <p>vol.3 2022年秋</p>
+          </a>
+        </div>
+        <div class="vol4 vol">
+          <a href="./_assets/hoya_04_web.pdf" target="_blank">
+            <img src="./_img/hoya_04.webp" alt="" />
+            <p>vol.4 2023年春</p>
+          </a>
+        </div>
+        <div class="vol5 vol">
+          <a href="./_assets/hoya_05_web.pdf" target="_blank">
+            <img src="./_img/hoya_05.webp" alt="" />
+            <p>vol.5 2023年秋</p>
+          </a>
+        </div>
+        <div class="vol6 vol">
+          <a href="./_assets/hoya_06_web.pdf" target="_blank">
+            <img src="./_img/hoya_06.webp" alt="" />
+            <p>vol.6 2024年春</p>
+          </a>
+        </div>
+        <div class="vol7 vol">
+          <a href="./_assets/hoya_07_web.pdf" target="_blank">
+            <img src="./_img/hoya_07.webp" alt="" />
+            <p>vol.7 2024年秋</p>
+          </a>
+        </div>
+      </div>
+      <div class="part">
+        <p class="subtitle">Hoyaに参加する</p>
+        <p>
+          学生主体のフリーペーパーである「Hoya」の編集に参加したり、企画を持ち込んでみませんか？
+        </p>
+        <div class="part_item edit">
+          <img src="./_img/hoya_cora_edited_edited.webp" alt="" />
+          <p>
+            編集部は「Hoya」の企画・執筆・レイアウトやデザインを全部できます。企画の自由度は高く、各メンバーの興味・アイデアに沿って決定します。Adobe
+            InDesignなどDTPソフトを用いて編集しています。出版のことを１から知ってみたい方、雑誌に興味がある方は是非見学にお越しください。週に一回活動しており、曜日はクオーターによって異なります。<br />
+            本編集部はTaki Plaza Gardener
+            広報班の活動の一部です(2023年4月現在)。参加希望や質問などはHoyaにメール、またはTPGのSNSアカウントへのDMにてご連絡ください。
+          </p>
+        </div>
+        <div class="part_item project">
+          <img src="./_img/hoya_cora2_edited_edited.webp" alt="" />
+          <p>
+            誰かに特集して欲しいスクープ、小さいことだけど一緒に取材して欲しいこと、地味に気になるアイデアがある東京科学大学生の「持ち込み企画」も歓迎しております。企画書をお寄せしていただければ、内容の審査の上で編集部と協働できます。執筆・デザインの担当は編集部員との相談で決定いたします。下のボタンから掲載記事企画書をダウンロードできますので、記入済みの企画書をHoyaのメールアドレスに送付して下さい。企画の注意事項は掲載記事企画書内に記載してありますので、ご確認下さい。
+          </p>
+        </div>
+      </div>
+      <div class="btn">
+        <a href="./_assets/ProposalForHoya.docx"
+          >掲載記事企画書をダウンロード</a
+        >
+      </div>
+      <div class="ad">
+        <p class="subtitle">広告掲載について</p>
+        <p>
+          東京科学大学生への広告を掲載し、本誌を支えてくださる事業者様を募集しております。<br />
+          広告を検討されている方は、広告掲載依頼申込書を確認・記入の上で、下記連絡先にお問い合わせ下さい。
+        </p>
+      </div>
+      <div class="btn">
+        <a href="./_assets/adForHoya.docx">広告掲載依頼書をダウンロード</a>
+      </div>
+      <div class="qa">
+        <p class="subtitle">お問い合わせ</p>
+        <p>
+          Mail：tpg.freepaper.hoya(at)gmail.com
+          <br />*(at)をアットマークに変えて下さい
+        </p>
+      </div>
+    </div>
+</Layout>
+
+<style>
+html {
+  font-size: 1.2vw; /* rem*/
+}
+body {
+  background-image: url("background.webp");
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+  /* color: #5CB200; */
+  font-size: 1rem;
+  transition: 0.5s;
+}
+p,
+li {
+  font-size: 1rem;
+  color: #181818;
+}
+
+.fade_hoya {
+  width: 60%;
+  margin-top: 90px;
+  margin-left: 20%;
+  margin-bottom: 0px;
+  background-color: #fff;
+}
+.logo {
+  width: 62%;
+  height: auto;
+  margin-top: 85px;
+  margin-left: 19%;
+}
+.explanation {
+  width: 80%;
+  margin-top: 30px;
+  margin-left: 10%;
+  text-align: center;
+}
+.explanation p {
+  font-weight: bold;
+}
+.jiyu {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 500px;
+  margin-top: 50px;
+  background-color: #407c51;
+}
+.jiyu img {
+  position: absolute;
+  width: 30%;
+  height: auto;
+  transform: translate(0, -50%);
+  top: 50%;
+  left: 5%;
+}
+.jiyu p {
+  position: absolute;
+  width: 58%;
+  transform: translate(0, -50%);
+  top: 50%;
+  left: 40%;
+  padding: 0;
+  margin: 0;
+  color: #fff;
+}
+.archive {
+  margin-top: 80px;
+  margin-left: 5%;
+  width: 90%;
+}
+.subtitle {
+  font-size: 2rem;
+  color: #550e98;
+}
+.archive_text {
+  color: #407c51;
+}
+.items {
+  margin-top: 30px;
+  display: grid;
+  width: 90%;
+  margin-left: 5%;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto 20px auto ;
+}
+.vol img {
+  margin-bottom: 1px;
+  width: 80%;
+  height: auto;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+.part {
+  width: 90%;
+  margin-top: 50px;
+  margin-left: 5%;
+}
+.part_item {
+  position: relative;
+  width: 100%;
+  height: 22vw;
+  display: flex;
+}
+.part_item img {
+  position: absolute;
+  transform: translate(0, -50%);
+  width: 30%;
+  height: auto;
+  top: 50%;
+  left: 0;
+}
+.part_item p {
+  position: absolute;
+  transform: translate(0, -50%);
+  width: 66%;
+  top: 50%;
+  left: 32%;
+  padding: 0;
+  margin: 0;
+}
+.edit {
+  background-color: #d8eaf5;
+}
+.project {
+  background-color: #e9c2da;
+}
+.btn {
+  position: relative;
+  width: 100%;
+  margin-top: 20px;
+}
+.btn a {
+  position: absolute;
+  display: block;
+  transform: translate(-50%, 0);
+  left: 50%;
+  text-decoration: none;
+  color: #181818;
+  padding: 1rem;
+  background-color: #fae57d;
+  border: 1px solid #fae57d;
+  border-radius: 100px;
+  box-shadow: 0 2px 0 0 #777;
+}
+.btn a:hover {
+  box-shadow: 0 0px 0 0 #666;
+}
+.ad {
+  margin-top: 100px;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+.qa {
+  margin-top: 130px;
+  margin-left: 40px;
+  padding-bottom: 30px;
+}
+
+@media screen and (max-width: 1024px) {
+  .fade_hoya {
+    width: 95%;
+    margin-top: 90px;
+    padding-top: 0px;
+    margin-left: 2.5%;
+  }
+  .jiyu {
+    height: 450px;
+  }
+  .part_item {
+    height: 350px;
+  }
+}
+@media screen and (max-width: 670px) {
+  .fade_hoya {
+    margin-top: 90px;
+  }
+  .logo {
+    margin-top: 20px;
+  }
+  .jiyu {
+    height: 600px;
+    margin-top: 25px;
+  }
+  .jiyu img {
+    width: 40%;
+    transform: translate(0, 0);
+    top: 10px;
+    left: 30%;
+  }
+  .jiyu p {
+    width: 90%;
+    transform: translate(0, 0);
+    top: 35vw;
+    left: 5%;
+  }
+
+  .archive {
+    margin-top: 40px;
+  }
+  .vol {
+    width: 100%;
+  }
+  .part_item {
+    width: 90%;
+    height: 500px;
+    margin-left: 5%;
+  }
+}
+
+</style>
