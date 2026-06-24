@@ -1,343 +1,675 @@
 ---
-import Layout from "@layouts/Layout.astro"
+import Layout from "@layouts/Layout.astro";
+import { Image } from "astro:assets";
 
-// Astroの画像最適化を利用するため
-import { Image } from 'astro:assets';
+// アセット画像のインポート
+import logo from "@assets/hoya_logo.png";
+import theme from "@assets/logo_jiyu.webp";
 
-import logo from '@assets/hoya_logo.png';
-import theme from '@assets/logo_jiyu.webp';
+import vol5 from "@assets/hoya_05.webp";
+import vol6 from "@assets/hoya_06.webp";
+import vol7 from "@assets/hoya_07.webp";
+import joinEdit from "@assets/hoya_cora_edited_edited.webp";
+import joinProject from "@assets/hoya_cora2_edited_edited.webp";
+import viewAllSvg from "@assets/view_all.svg";
 ---
 
 <Layout title="Hoya">
-	<div class="fade_hoya">
-      <Image src={logo} alt="Hoya Logo" class="logo" />
-      <div class="explanation">
-        <p>4月・10月発行予定　vol.1~6 webにてアーカイブ公開中</p>
-      </div>
-      <div class="jiyu">
-        <Image src={theme} alt="Hoyaから始まる自由" />
-        <p>
-          はじめまして、こんにちは。
-          <br />Taki Plaza Gardenerが発行する「Hoya」です。
-          <br /><br />2021年春生まれの東京科学大学フリーペーパーの新しい一員です。
-          <br /><br />Taki
-          Plazaでのくつろぎの時、何となく暇なスキマ時間に読んでもらえる読みものがあればいいな、と考えたTPG広報班有志によって誕生しました。
-          <br /><br />噛めば噛むほど味が出る、食べてみたら意外とクセになる「ホヤ」のような存在でありたいと思っています。
-          <br /><br />Taki
-          Plazaから始まる自由気ままなフリーペーパーをモットーに、
-          <br />役に立つかもしれない（？）遊び心満載のコンテンツを掲載する予定です。
-          <br />もしTaki Plazaに立ち寄る機会があれば是非手にとってみて下さいね。
-        </p>
-      </div>
-      <div class="archive">
-        <p class="subtitle archve_text">アーカイブ</p>
-        <p>
-          過去に発行したHoyaのバックナンバーを閲覧できます。気になる号の画像をクリックして下さい。
-        </p>
-      </div>
-      <div class="items">
-        <div class="vol1 vol">
-          <a href="./_assets/hoya_01_web.pdf" target="_blank">
-            <img src="./_img/hoya_01.webp" alt="" />
-            <p>vol.1 2021年春</p>
+  <!-- セクション1: 最新バックナンバー (Hero / Latest Archives) -->
+  <section class="hero-section">
+    <div class="container hero-container">
+      <Image src={logo} alt="Hoya" class="title_logo" />
+
+      <div class="archive-grid latest-archives">
+        <div class="archive-card">
+          <a
+            href="/_assets/hoyaPDF/hoya_07_web.pdf"
+            target="_blank"
+            class="card-link"
+          >
+            <div class="card-image-wrapper placeholder-pink">
+              <Image src={vol7} alt="Hoya Vol.7" class="card-img" />
+            </div>
+            <div class="card-info">
+              <span class="card-vol">Vol.7</span>
+              <span class="card-year">2024年秋</span>
+            </div>
           </a>
         </div>
-        <div class="vol2 vol">
-          <a href="./_assets/hoya_02_web.pdf" target="_blank">
-            <img src="./_img/hoya_02.webp" alt="" />
-            <p>vol.2 2021年秋</p>
+
+        <div class="archive-card">
+          <a
+            href="/_assets/hoyaPDF/hoya_06_web.pdf"
+            target="_blank"
+            class="card-link"
+          >
+            <div class="card-image-wrapper placeholder-pink">
+              <Image src={vol6} alt="Hoya Vol.6" class="card-img" />
+            </div>
+            <div class="card-info">
+              <span class="card-vol">Vol.6</span>
+              <span class="card-year">2024年春</span>
+            </div>
           </a>
         </div>
-        <div class="vol3 vol">
-          <a href="./_assets/hoya_03_web.pdf" target="_blank">
-            <img src="./_img/hoya_03.webp" alt="" />
-            <p>vol.3 2022年秋</p>
-          </a>
-        </div>
-        <div class="vol4 vol">
-          <a href="./_assets/hoya_04_web.pdf" target="_blank">
-            <img src="./_img/hoya_04.webp" alt="" />
-            <p>vol.4 2023年春</p>
-          </a>
-        </div>
-        <div class="vol5 vol">
-          <a href="./_assets/hoya_05_web.pdf" target="_blank">
-            <img src="./_img/hoya_05.webp" alt="" />
-            <p>vol.5 2023年秋</p>
-          </a>
-        </div>
-        <div class="vol6 vol">
-          <a href="./_assets/hoya_06_web.pdf" target="_blank">
-            <img src="./_img/hoya_06.webp" alt="" />
-            <p>vol.6 2024年春</p>
-          </a>
-        </div>
-        <div class="vol7 vol">
-          <a href="./_assets/hoya_07_web.pdf" target="_blank">
-            <img src="./_img/hoya_07.webp" alt="" />
-            <p>vol.7 2024年秋</p>
+
+        <div class="archive-card">
+          <a
+            href="/_assets/hoyaPDF/hoya_05_web.pdf"
+            target="_blank"
+            class="card-link"
+          >
+            <div class="card-image-wrapper placeholder-pink">
+              <Image src={vol5} alt="Hoya Vol.5" class="card-img" />
+            </div>
+            <div class="card-info">
+              <span class="card-vol">Vol.5</span>
+              <span class="card-year">2023年秋</span>
+            </div>
           </a>
         </div>
       </div>
-      <div class="part">
-        <p class="subtitle">Hoyaに参加する</p>
-        <p>
-          学生主体のフリーペーパーである「Hoya」の編集に参加したり、企画を持ち込んでみませんか？
-        </p>
-        <div class="part_item edit">
-          <img src="./_img/hoya_cora_edited_edited.webp" alt="" />
-          <p>
-            編集部は「Hoya」の企画・執筆・レイアウトやデザインを全部できます。企画の自由度は高く、各メンバーの興味・アイデアに沿って決定します。Adobe
-            InDesignなどDTPソフトを用いて編集しています。出版のことを１から知ってみたい方、雑誌に興味がある方は是非見学にお越しください。週に一回活動しており、曜日はクオーターによって異なります。<br />
-            本編集部はTaki Plaza Gardener
-            広報班の活動の一部です(2023年4月現在)。参加希望や質問などはHoyaにメール、またはTPGのSNSアカウントへのDMにてご連絡ください。
-          </p>
-        </div>
-        <div class="part_item project">
-          <img src="./_img/hoya_cora2_edited_edited.webp" alt="" />
-          <p>
-            誰かに特集して欲しいスクープ、小さいことだけど一緒に取材して欲しいこと、地味に気になるアイデアがある東京科学大学生の「持ち込み企画」も歓迎しております。企画書をお寄せしていただければ、内容の審査の上で編集部と協働できます。執筆・デザインの担当は編集部員との相談で決定いたします。下のボタンから掲載記事企画書をダウンロードできますので、記入済みの企画書をHoyaのメールアドレスに送付して下さい。企画の注意事項は掲載記事企画書内に記載してありますので、ご確認下さい。
-          </p>
-        </div>
-      </div>
-      <div class="btn">
-        <a href="./_assets/ProposalForHoya.docx"
-          >掲載記事企画書をダウンロード</a
-        >
-      </div>
-      <div class="ad">
-        <p class="subtitle">広告掲載について</p>
-        <p>
-          東京科学大学生への広告を掲載し、本誌を支えてくださる事業者様を募集しております。<br />
-          広告を検討されている方は、広告掲載依頼申込書を確認・記入の上で、下記連絡先にお問い合わせ下さい。
-        </p>
-      </div>
-      <div class="btn">
-        <a href="./_assets/adForHoya.docx">広告掲載依頼書をダウンロード</a>
-      </div>
-      <div class="qa">
-        <p class="subtitle">お問い合わせ</p>
-        <p>
-          Mail：tpg.freepaper.hoya(at)gmail.com
-          <br />*(at)をアットマークに変えて下さい
-        </p>
+
+      <div class="view-all-wrapper">
+        <a href="/archive" class="view-all-link">
+          <Image src={viewAllSvg} alt="View all" class="view-all-img" />
+        </a>
       </div>
     </div>
+  </section>
+
+  <!-- セクション2: Taki Plaza Gardener紹介 (緑背景セクション) -->
+  <section class="about-section">
+    <div class="container about-container">
+      <div class="about-left">
+        <div class="jiyu-logo-wrapper">
+          <Image
+            src={theme}
+            alt="Taki Plazaから始まる自由 free paper"
+            class="jiyu-logo-img"
+          />
+        </div>
+      </div>
+      <div class="about-right">
+        <p class="about-lead">
+          はじめまして、こんにちは。<br />Taki Plaza
+          Gardenerが発行する「Hoya」です。
+        </p>
+        <p class="about-text">
+          2021年春生まれの東京科学大学フリーペーパーの新しい一冊。
+        </p>
+        <p class="about-text">
+          Taki
+          Plazaでのくつろぎの時、何となく暇なスキマ時間に読んでもらえる読みものがあればいいな、と考えたTPG広報班有志によって誕生しました。
+        </p>
+        <p class="about-text">
+          噛めば噛むほど味が出る、食べてみたら意外とクセになる「ホヤ」のような存在でありたいと思っています。
+        </p>
+        <p class="about-text">
+          Taki
+          Plazaから始まる自由気ままなフリーペーパーをモットーに、役に立つかもしれない（？）遊び心満載
+          of コンテンツを掲載する予定です。もしTaki
+          Plazaに立ち寄る機会があれば是非手にとってみて下さいね。
+        </p>
+        <p class="about-note">4月・10月刊行予定です。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- セクション3: Hoyaに参加する (Join Section) -->
+  <section class="join-section" id="join-section">
+    <div class="container">
+      <h2 class="section-title">Hoyaに参加する</h2>
+      <div class="join-cards-container">
+        <!-- カード1: 編集部 -->
+        <div class="join-card edit-card">
+          <div class="card-img-container">
+            <Image
+              src={joinEdit}
+              alt="編集部に参加する"
+              class="join-card-img"
+            />
+          </div>
+          <div class="card-body">
+            <h3>編集部に参加する</h3>
+            <p>
+              編集部は「Hoya」の企画・執筆・レイアウトやデザインを全部できます。企画の自由度は高く、各メンバーの興味・アイデアに沿って決定します。Adobe
+              InDesignなどDTPソフトを用いて編集しています。出版のことを1から知ってみたい方、雑誌に興味がある方は是非見学にお越しください。週に一回活動しており、曜日はクオーターによって異なります。<br
+              />
+              本編集部はTaki Plaza Gardener 広報班の活動の一部です(2023年4月現在)。参加希望や質問などはHoyaにメール、またはTPGのSNSアカウントへのDMにてご連絡ください。
+            </p>
+          </div>
+        </div>
+
+        <!-- カード2: 企画持込 -->
+        <div class="join-card project-card">
+          <div class="card-img-container">
+            <Image
+              src={joinProject}
+              alt="企画を持ち込む"
+              class="join-card-img"
+            />
+          </div>
+          <div class="card-body">
+            <h3>企画を持ち込む</h3>
+            <p>
+              誰かに特集して欲しいスクープ、小さいことだけど一緒に取材して欲しいこと、地味に気になるアイデアがある東京科学大学生の「持ち込み企画」も歓迎しております。企画書をお寄せしていただければ、内容の審査の上で編集部と協働できます。執筆・デザインの担当は編集部員との相談で決定いたします。下のボタンから掲載記事企画書をダウンロードできますので、記入済みの企画書をHoyaのメールアドレスに送付して下さい。企画の注意事項は掲載記事企画書内に記載してありますので、ご確認下さい。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="download-btn-wrapper">
+        <a href="@assets/ProposalForHoya.docx" class="download-btn">
+          掲載記事企画書をダウンロード
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- セクション4: 広告掲載について (Ad Section) -->
+  <section class="ad-section" id="ad-section">
+    <div class="container ad-container">
+      <h2 class="section-title">広告掲載について</h2>
+      <p class="ad-text">
+        東京科学大学生への広告を掲載し、本誌を支えてくださる事業者様を募集しております。<br
+        />
+        広告を検討されている方は、広告掲載依頼申込書を確認・記入の上で、下記連絡先にお問い合わせ下さい。
+      </p>
+      <div class="download-btn-wrapper">
+        <a href="@assets/adForHoya.docx" class="download-btn">
+          広告掲載依頼書をダウンロード
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- セクション5: お問い合わせ (Contact Section) -->
+  <section class="contact-section" id="contact-section">
+    <div class="container contact-container">
+      <h2 class="section-title">お問い合わせ</h2>
+
+      <div class="contact-box">
+        <h3 class="contact-box-title">Taki Plaza Gardener</h3>
+        <div class="contact-details">
+          <div class="contact-item">
+            <span class="label">住所</span>
+            <span class="value"
+              >〒152-8550 東京都目黒区大岡山 2-12-1 Taki Plaza B2F TPG居室</span
+            >
+          </div>
+          <div class="contact-item">
+            <span class="label">メール</span>
+            <span class="value">
+              <a href="mailto:contact@tpgd.jp" class="email-link"
+                >contact@tpgd.jp</a
+              >
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>
 
 <style>
-html {
-  font-size: 1.2vw; /* rem*/
-}
-body {
-  background-image: url("background.webp");
-  background-position: center center;
-  background-size: cover;
-  background-attachment: fixed;
-}
-a {
-  text-decoration: none;
-  display: inline-block;
-  /* color: #5CB200; */
-  font-size: 1rem;
-  transition: 0.5s;
-}
-p,
-li {
-  font-size: 1rem;
-  color: #181818;
-}
-
-.fade_hoya {
-  width: 60%;
-  margin-top: 90px;
-  margin-left: 20%;
-  margin-bottom: 0px;
-  background-color: #fff;
-}
-.logo {
-  width: 62%;
-  height: auto;
-  margin-top: 85px;
-  margin-left: 19%;
-}
-.explanation {
-  width: 80%;
-  margin-top: 30px;
-  margin-left: 10%;
-  text-align: center;
-}
-.explanation p {
-  font-weight: bold;
-}
-.jiyu {
-  position: relative;
-  display: flex;
-  width: 100%;
-  height: 500px;
-  margin-top: 50px;
-  background-color: #407c51;
-}
-.jiyu img {
-  position: absolute;
-  width: 30%;
-  height: auto;
-  transform: translate(0, -50%);
-  top: 50%;
-  left: 5%;
-}
-.jiyu p {
-  position: absolute;
-  width: 58%;
-  transform: translate(0, -50%);
-  top: 50%;
-  left: 40%;
-  padding: 0;
-  margin: 0;
-  color: #fff;
-}
-.archive {
-  margin-top: 80px;
-  margin-left: 5%;
-  width: 90%;
-}
-.subtitle {
-  font-size: 2rem;
-  color: #550e98;
-}
-.archive_text {
-  color: #407c51;
-}
-.items {
-  margin-top: 30px;
-  display: grid;
-  width: 90%;
-  margin-left: 5%;
-  grid-template-columns: auto auto auto;
-  grid-template-rows: auto 20px auto ;
-}
-.vol img {
-  margin-bottom: 1px;
-  width: 80%;
-  height: auto;
-  margin-left: 2%;
-  margin-right: 2%;
-}
-.part {
-  width: 90%;
-  margin-top: 50px;
-  margin-left: 5%;
-}
-.part_item {
-  position: relative;
-  width: 100%;
-  height: 22vw;
-  display: flex;
-}
-.part_item img {
-  position: absolute;
-  transform: translate(0, -50%);
-  width: 30%;
-  height: auto;
-  top: 50%;
-  left: 0;
-}
-.part_item p {
-  position: absolute;
-  transform: translate(0, -50%);
-  width: 66%;
-  top: 50%;
-  left: 32%;
-  padding: 0;
-  margin: 0;
-}
-.edit {
-  background-color: #d8eaf5;
-}
-.project {
-  background-color: #e9c2da;
-}
-.btn {
-  position: relative;
-  width: 100%;
-  margin-top: 20px;
-}
-.btn a {
-  position: absolute;
-  display: block;
-  transform: translate(-50%, 0);
-  left: 50%;
-  text-decoration: none;
-  color: #181818;
-  padding: 1rem;
-  background-color: #fae57d;
-  border: 1px solid #fae57d;
-  border-radius: 100px;
-  box-shadow: 0 2px 0 0 #777;
-}
-.btn a:hover {
-  box-shadow: 0 0px 0 0 #666;
-}
-.ad {
-  margin-top: 100px;
-  margin-left: 40px;
-  margin-right: 40px;
-}
-.qa {
-  margin-top: 130px;
-  margin-left: 40px;
-  padding-bottom: 30px;
-}
-
-@media screen and (max-width: 1024px) {
-  .fade_hoya {
-    width: 95%;
-    margin-top: 90px;
-    padding-top: 0px;
-    margin-left: 2.5%;
-  }
-  .jiyu {
-    height: 450px;
-  }
-  .part_item {
-    height: 350px;
-  }
-}
-@media screen and (max-width: 670px) {
-  .fade_hoya {
-    margin-top: 90px;
-  }
-  .logo {
-    margin-top: 20px;
-  }
-  .jiyu {
-    height: 600px;
-    margin-top: 25px;
-  }
-  .jiyu img {
-    width: 40%;
-    transform: translate(0, 0);
-    top: 10px;
-    left: 30%;
-  }
-  .jiyu p {
-    width: 90%;
-    transform: translate(0, 0);
-    top: 35vw;
-    left: 5%;
+  /* 共通コンテナ */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
   }
 
-  .archive {
+  .title_logo {
+    margin: 0 auto;
+    margin-bottom: 40px;
+    width: 50%;
+    height: auto;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 20px;
+    }
+  }
+
+  /* セクション共通 */
+  section {
+    padding: 100px 0;
+  }
+
+  @media (max-width: 768px) {
+    section {
+      padding: 60px 0;
+    }
+  }
+
+  .section-title {
+    font-family: "Noto Sans JP Variable", sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    color: #181818;
+    margin-top: 0;
+    margin-bottom: 40px;
+  }
+
+  /* セクション1: 最新バックナンバー (Hero) */
+  .hero-section {
+    background-color: #ffffff;
+    padding-top: 40px;
+    padding-bottom: 80px;
+  }
+
+  .hero-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-title {
+    font-family: "Outfit", "Montserrat", "Noto Sans JP Variable", sans-serif;
+    font-size: 5rem;
+    font-weight: 800;
+    color: #181818;
+    letter-spacing: 0.05em;
+    margin-top: 0;
+    margin-bottom: 60px;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 3.5rem;
+      margin-bottom: 40px;
+    }
+  }
+
+  /* アーカイブグリッド */
+  .archive-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    width: 100%;
+    max-width: 1000px;
+  }
+
+  @media (max-width: 768px) {
+    .archive-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      max-width: 100%;
+    }
+    .card-info {
+      margin-top: 8px;
+      gap: 8px;
+      font-size: 11px;
+      padding-left: 2px;
+    }
+  }
+
+  .archive-card {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .card-link {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .card-image-wrapper {
+    width: 100%;
+    aspect-ratio: 1 / 1.414; /* A4比率 */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eaeaea;
+    transition: box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    background-color: #fafafa;
+  }
+
+  /* Figmaデザインのピンクプレースホルダーを再現しつつ画像を載せる */
+  .placeholder-pink {
+    background-color: #f7d6d6;
+    border-color: #e5b3b3;
+  }
+
+  .card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .archive-card:hover {
+    transform: translateY(-8px);
+  }
+
+  .archive-card:hover .card-image-wrapper {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  }
+
+  .archive-card:hover .card-image-wrapper img {
+    transform: scale(1.05);
+  }
+
+  .card-info {
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+    font-family: "Noto Sans JP Variable", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #444;
+    padding-left: 5px;
+  }
+
+  .card-vol {
+    font-weight: 700;
+  }
+
+  /* View All リンク */
+  .view-all-wrapper {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    justify-content: flex-end;
     margin-top: 40px;
   }
-  .vol {
+
+  .view-all-link {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .view-all-img {
+    height: auto;
+    width: 200px;
+  }
+
+  @media (max-width: 768px) {
+    .view-all-img {
+      width: 180px;
+    }
+  }
+
+  /* セクション2: Taki Plaza Gardener紹介 (緑背景) */
+  .about-section {
+    background-color: #21824f;
+    color: #ffffff;
+  }
+
+  .about-container {
+    display: grid;
+    grid-template-columns: 1.1fr 1.9fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  @media (max-width: 768px) {
+    .about-container {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      text-align: center;
+    }
+  }
+
+  .jiyu-logo-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
   }
-  .part_item {
-    width: 90%;
-    height: 500px;
-    margin-left: 5%;
-  }
-}
 
+  .jiyu-logo-wrapper img {
+    max-width: 85%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  @media (max-width: 768px) {
+    .jiyu-logo-img {
+      max-width: 60%;
+    }
+  }
+
+  .about-right {
+    font-family: "Noto Sans JP Variable", sans-serif;
+  }
+
+  .about-lead {
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1.8;
+    margin-bottom: 25px;
+  }
+
+  .about-text {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    opacity: 0.9;
+  }
+
+  .about-note {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-top: 30px;
+    margin-bottom: 0;
+  }
+
+  /* セクション3: Hoyaに参加する */
+  .join-section {
+    background-color: #ffffff;
+  }
+
+  .join-cards-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 50px;
+  }
+
+  @media (max-width: 768px) {
+    .join-cards-container {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+  }
+
+  .join-card {
+    border-radius: 12px;
+    overflow: hidden;
+    border-width: 1px;
+    border-style: solid;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+  }
+
+  .edit-card {
+    background-color: #e3efff; /* 薄い水色 */
+    border-color: #c4dcff;
+  }
+
+  .project-card {
+    background-color: #f7e3f4; /* 薄いピンク */
+    border-color: #f0c5e7;
+  }
+
+  .card-img-container {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .card-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .card-body {
+    padding: 30px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    font-family: "Noto Sans JP Variable", sans-serif;
+  }
+
+  .card-body h3 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #181818;
+  }
+
+  .card-body p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin: 0;
+    color: #333333;
+  }
+
+  /* ダウンロードボタン */
+  .download-btn-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .download-btn {
+    display: inline-block;
+    background-color: #fadb66; /* ソフトな黄色 */
+    color: #181818;
+    border: 1px solid #f1cf44;
+    border-radius: 100px;
+    padding: 18px 45px;
+    font-family: "Noto Sans JP Variable", sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(241, 207, 68, 0.2);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .download-btn:hover {
+    background-color: #f3cf3d;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(241, 207, 68, 0.35);
+  }
+
+  /* セクション4: 広告掲載について */
+  .ad-section {
+    background-color: #fafafa;
+    border-top: 1px solid #eaeaea;
+    border-bottom: 1px solid #eaeaea;
+  }
+
+  .ad-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .ad-text {
+    font-family: "Noto Sans JP Variable", sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 40px;
+    max-width: 800px;
+  }
+
+  /* セクション5: お問い合わせ */
+  .contact-section {
+    background-color: #ffffff;
+  }
+
+  .contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-box {
+    background-color: #ffffff;
+    border: 1px solid #dcdcdc;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 800px;
+    padding: 40px 50px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.02);
+  }
+
+  @media (max-width: 768px) {
+    .contact-box {
+      padding: 30px 20px;
+    }
+  }
+
+  .contact-box-title {
+    font-family: "Noto Sans JP Variable", sans-serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #181818;
+    margin-top: 0;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #248b4b;
+    padding-bottom: 10px;
+    display: inline-block;
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    font-family: "Noto Sans JP Variable", sans-serif;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  @media (max-width: 576px) {
+    .contact-item {
+      flex-direction: column;
+      gap: 5px;
+    }
+  }
+
+  .contact-item .label {
+    font-weight: 700;
+    width: 100px;
+    color: #555;
+    flex-shrink: 0;
+  }
+
+  .contact-item .value {
+    color: #181818;
+    line-height: 1.6;
+  }
+
+  .email-link {
+    color: #248b4b;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+  }
+
+  .email-link:hover {
+    color: #1b6637;
+  }
+
+  .note {
+    display: inline-block;
+    color: #777;
+    margin-top: 5px;
+  }
 </style>

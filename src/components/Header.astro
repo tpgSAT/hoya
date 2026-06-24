@@ -1,29 +1,271 @@
 ---
 // Astroの画像最適化を利用するため
-import { Image } from 'astro:assets';
-import logo from '@assets/hoya_logo.png';
+import { Image } from "astro:assets";
+import logo from "@assets/hoya_logo.png";
 ---
 
 <header>
-	<Image src={logo} alt="Hoya Logo" width="120" class="logo" />
+	<div class="header-container">
+		<a href="/" class="header-left">
+			<div class="placeholder-box logo-placeholder">
+				<Image src={logo} alt="Hoya Logo" class="logo-img" />
+			</div>
+		</a>
+		<div class="header-right">
+			<button
+				id="menu-toggle-btn"
+				class="hamburger-btn"
+				aria-label="メニューを開閉する"
+			>
+				<span class="line_blank"></span>
+				<span class="line line-top"></span>
+				<span class="line line-bottom"></span>
+				<span class="line_blank"></span>
+			</button>
+		</div>
+
+		<!-- ドロップダウンメニュー -->
+		<div id="menu-dropdown" class="menu-dropdown">
+			<nav class="menu-nav">
+				<ul class="menu-list">
+					<li><a href="/archive" class="menu-item">アーカイブ</a></li>
+					<li>
+						<a href="/#join-section" class="menu-item"
+							>hoyaに参加する</a
+						>
+					</li>
+					<li>
+						<a href="/#ad-section" class="menu-item"
+							>広告掲載について</a
+						>
+					</li>
+					<li>
+						<a href="/#contact-section" class="menu-item"
+							>お問い合わせ</a
+						>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
 </header>
 
-<style>
+<script>
+	const menuToggleBtn = document.getElementById("menu-toggle-btn");
+	const menuDropdown = document.getElementById("menu-dropdown");
+	const menuLinks = document.querySelectorAll(".menu-item");
+
+	function toggleMenu(e) {
+		e.stopPropagation();
+		menuToggleBtn?.classList.toggle("active");
+		menuDropdown?.classList.toggle("open");
+	}
+
+	function closeMenu() {
+		menuToggleBtn?.classList.remove("active");
+		menuDropdown?.classList.remove("open");
+	}
+
+	menuToggleBtn?.addEventListener("click", toggleMenu);
+
+	// メニューリンククリック時に閉じる
+	menuLinks.forEach((link) => {
+		link.addEventListener("click", closeMenu);
+	});
+
+	// メニュー外クリック時に閉じる
+	document.addEventListener("click", (e) => {
+		const target = e.target;
+		if (
+			menuDropdown &&
+			!menuDropdown.contains(target) &&
+			menuToggleBtn &&
+			!menuToggleBtn.contains(target)
+		) {
+			closeMenu();
+		}
+	});
+</script>
+
+<style is:global>
 	header {
 		position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-		padding: 0 10px;
+		top: 0;
+		left: 0;
+		width: 100%;
 		height: 80px;
+		background-color: #f5f5f5;
+		border-bottom: 1px solid #dcdcdc;
+		z-index: 1000;
 		display: flex;
 		align-items: center;
-		z-index: 999;
-        background-color: #fff;
 	}
 
-	.logo {
-
+	.header-container {
+		width: 100%;
+		max-width: 1440px;
+		margin: 0 auto;
+		padding: 0 40px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		position: relative; /* ドロップダウンメニューの配置基準 */
 	}
 
+	.placeholder-box {
+		background-color: transparent;
+		border: none;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: all 0.3s ease;
+	}
+
+	.logo-placeholder {
+		width: 120px;
+		height: 50px;
+		padding: 5px;
+		border-radius: 4px;
+	}
+
+	.logo-img {
+		max-width: 100%;
+		max-height: 100%;
+		object-fit: contain;
+	}
+
+	/* ハンバーガーボタン（二本線） */
+	.hamburger-btn {
+		background: none;
+		border: none;
+		cursor: pointer;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		width: 40px;
+		height: 40px;
+		padding: 0;
+		z-index: 1010;
+		position: relative;
+	}
+
+	.line {
+		display: block;
+		width: 100%;
+		height: 2px;
+		background-color: #181818;
+		transition:
+			transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+			background-color 0.3s ease;
+		border-radius: 1px;
+	}
+
+	/* 開いた時のクロスアニメーション */
+	.hamburger-btn.active .line-top {
+		transform: translateY(7px) rotate(45deg);
+	}
+
+	.hamburger-btn.active .line-bottom {
+		transform: translateY(-7px) rotate(-45deg);
+	}
+
+	/* ドロップダウンメニュー（モーダルではなくヘッダー直下に配置） */
+	.menu-dropdown {
+		position: absolute;
+		top: 60px; /* ヘッダーの高さ80pxに少し重ねるか重なり気味に配置 */
+		right: 20px;
+		background-color: #ffffff;
+		border: 3px solid #181818;
+		border-radius: 28px;
+		width: 200px;
+		padding: 35px 30px;
+		box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+		z-index: 1005;
+		opacity: 0;
+		transform: translateY(-10px);
+		pointer-events: none;
+		transition:
+			opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+			transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+	}
+
+	.menu-dropdown.open {
+		opacity: 1;
+		transform: translateY(0);
+		pointer-events: auto;
+	}
+
+	.menu-nav {
+		width: 100%;
+	}
+
+	.menu-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 15px;
+	}
+
+	.menu-item {
+		display: inline-block;
+		background: none;
+		border: none;
+		padding: 0;
+		font-family: "Noto Sans JP Variable", sans-serif;
+		font-size: 1.5rem;
+		font-weight: 700;
+		color: #181818;
+		text-decoration: none;
+		text-align: left;
+		cursor: pointer;
+		position: relative;
+		transition:
+			color 0.3s ease,
+			transform 0.3s ease;
+	}
+
+	/* ホバーアニメーション */
+	.menu-item::after {
+		content: "";
+		position: absolute;
+		bottom: -2px;
+		left: 0;
+		width: 0;
+		height: 2px;
+		background-color: #181818;
+		transition: width 0.3s ease;
+	}
+
+	.menu-item:hover {
+		color: #555;
+		transform: translateX(5px);
+	}
+
+	.menu-item:hover::after {
+		width: 100%;
+	}
+
+	@media (max-width: 768px) {
+		.header-container {
+			padding: 0 20px;
+		}
+
+		.logo-placeholder {
+			width: 100px;
+			height: 40px;
+		}
+
+		.menu-dropdown {
+			right: 20px;
+			width: calc(100% - 60px);
+			max-width: 200px;
+			padding: 30px 25px;
+		}
+
+		.menu-item {
+			font-size: 1.35rem;
+		}
+	}
 </style>
