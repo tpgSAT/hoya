@@ -5,13 +5,12 @@ import { Image } from "astro:assets";
 // アセット画像のインポート
 import logo from "@assets/hoya_logo.png";
 import theme from "@assets/logo_jiyu.webp";
-
-import vol5 from "@assets/hoya_05.webp";
-import vol6 from "@assets/hoya_06.webp";
-import vol7 from "@assets/hoya_07.webp";
 import joinEdit from "@assets/hoya_cora_edited_edited.webp";
 import joinProject from "@assets/hoya_cora2_edited_edited.webp";
 import viewAllSvg from "@assets/view_all.svg";
+import { archives } from "../data/archives";
+
+const latestArchives = archives.slice(0, 3);
 ---
 
 <Layout title="Hoya">
@@ -21,53 +20,25 @@ import viewAllSvg from "@assets/view_all.svg";
       <Image src={logo} alt="Hoya" class="title_logo" />
 
       <div class="archive-grid latest-archives">
-        <div class="archive-card">
-          <a
-            href="/_assets/hoyaPDF/hoya_07_web.pdf"
-            target="_blank"
-            class="card-link"
-          >
-            <div class="card-image-wrapper placeholder-pink">
-              <Image src={vol7} alt="Hoya Vol.7" class="card-img" />
+        {
+          latestArchives.map((item) => (
+            <div class="archive-card">
+              <a
+                href={item.pdf}
+                target="_blank"
+                class="card-link"
+              >
+                <div class="card-image-wrapper placeholder-pink">
+                  <Image src={item.img} alt={`Hoya ${item.vol}`} class="card-img" />
+                </div>
+                <div class="card-info">
+                  <span class="card-vol">{item.vol}</span>
+                  <span class="card-year">{item.year}</span>
+                </div>
+              </a>
             </div>
-            <div class="card-info">
-              <span class="card-vol">Vol.7</span>
-              <span class="card-year">2024年秋</span>
-            </div>
-          </a>
-        </div>
-
-        <div class="archive-card">
-          <a
-            href="/_assets/hoyaPDF/hoya_06_web.pdf"
-            target="_blank"
-            class="card-link"
-          >
-            <div class="card-image-wrapper placeholder-pink">
-              <Image src={vol6} alt="Hoya Vol.6" class="card-img" />
-            </div>
-            <div class="card-info">
-              <span class="card-vol">Vol.6</span>
-              <span class="card-year">2024年春</span>
-            </div>
-          </a>
-        </div>
-
-        <div class="archive-card">
-          <a
-            href="/_assets/hoyaPDF/hoya_05_web.pdf"
-            target="_blank"
-            class="card-link"
-          >
-            <div class="card-image-wrapper placeholder-pink">
-              <Image src={vol5} alt="Hoya Vol.5" class="card-img" />
-            </div>
-            <div class="card-info">
-              <span class="card-vol">Vol.5</span>
-              <span class="card-year">2023年秋</span>
-            </div>
-          </a>
-        </div>
+          ))
+        }
       </div>
 
       <div class="view-all-wrapper">
