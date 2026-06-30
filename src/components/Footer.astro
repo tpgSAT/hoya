@@ -1,11 +1,12 @@
 ---
 // Astroの画像最適化を利用するため
 import { Image } from "astro:assets";
-import logo from "@assets/hoya_logo.png";
 
 import iconX from "../assets/footer/icon_x.svg";
 import iconInstagram from "../assets/footer/icon_instagram.svg";
-import iconTPG from "@assets/footer/logo_set.png";
+import iconTPG from "../assets/footer/logo_set.svg";
+import archive from "../assets/footer/archive.svg";
+import contact from "../assets/footer/contact.svg";
 ---
 
 <footer>
@@ -23,8 +24,8 @@ import iconTPG from "@assets/footer/logo_set.png";
     </div>
 
     <div id="footer-nav">
-        <a href="/archive" class="nav-link">アーカイブ</a>
-        <a href="/#contact-section" class="nav-link">お問い合わせ</a>
+        <Image src={archive} alt="archive" class="nav-link" />
+        <Image src={contact} alt="contact" class="nav-link" />
     </div>
     <p id="copyright">
         ©︎ {new Date().getFullYear()} Taki Plaza Gardener All Rights Reserved.
@@ -68,7 +69,7 @@ import iconTPG from "@assets/footer/logo_set.png";
     .nav-link {
         font-family: "Noto Sans JP Variable", sans-serif;
         font-weight: 400;
-        font-size: 15px;
+        font-size: 18px;
         color: #fff;
     }
 
