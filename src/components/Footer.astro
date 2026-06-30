@@ -24,8 +24,12 @@ import contact from "../assets/footer/contact.svg";
     </div>
 
     <div id="footer-nav">
-        <Image src={archive} alt="archive" class="nav-link" />
-        <Image src={contact} alt="contact" class="nav-link" />
+        <a href="/archive" id="archive-link"
+            ><Image src={archive} alt="archive" class="nav-link" /></a
+        >
+        <a href="/#contact-section" id="contact-link"
+            ><Image src={contact} alt="contact" class="nav-link" /></a
+        >
     </div>
     <p id="copyright">
         ©︎ {new Date().getFullYear()} Taki Plaza Gardener All Rights Reserved.

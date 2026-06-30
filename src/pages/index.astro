@@ -23,13 +23,13 @@ const latestArchives = archives.slice(0, 3);
         {
           latestArchives.map((item) => (
             <div class="archive-card">
-              <a
-                href={item.pdf}
-                target="_blank"
-                class="card-link"
-              >
+              <a href={item.pdf} target="_blank" class="card-link">
                 <div class="card-image-wrapper placeholder-pink">
-                  <Image src={item.img} alt={`Hoya ${item.vol}`} class="card-img" />
+                  <Image
+                    src={item.img}
+                    alt={`Hoya ${item.vol}`}
+                    class="card-img"
+                  />
                 </div>
                 <div class="card-info">
                   <span class="card-vol">{item.vol}</span>
@@ -131,7 +131,7 @@ const latestArchives = archives.slice(0, 3);
       </div>
 
       <div class="download-btn-wrapper">
-        <a href="@assets/ProposalForHoya.docx" class="download-btn">
+        <a href="public/ProposalForHoya.docx" class="download-btn">
           掲載記事企画書をダウンロード
         </a>
       </div>
@@ -148,7 +148,7 @@ const latestArchives = archives.slice(0, 3);
         広告を検討されている方は、広告掲載依頼申込書を確認・記入の上で、下記連絡先にお問い合わせ下さい。
       </p>
       <div class="download-btn-wrapper">
-        <a href="@assets/adForHoya.docx" class="download-btn">
+        <a href="public/adForHoya.docx" class="download-btn">
           広告掲載依頼書をダウンロード
         </a>
       </div>
